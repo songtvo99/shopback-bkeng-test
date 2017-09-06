@@ -2,7 +2,6 @@
  * Created by apple on 9/5/17.
  */
 'use strict'
-const logger = require('./logger')
 
 class Util {
 
@@ -17,7 +16,7 @@ class Util {
         let highest = 0;
         let lowest = 0;
         var isFirst = true;
-        numbers.map((i, index) => {
+        numbers.map((i) => {
             const num = Number(i);
             if (!Number.isNaN(i) && num > 0) {
                 if (isFirst) {

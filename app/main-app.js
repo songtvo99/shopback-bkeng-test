@@ -2,7 +2,8 @@
  * Created by apple on 9/5/17.
  */
 'use strict';
-const logger = require('./utils/logger')
+const logger = require('./utils/logger');
+const Task = require('./tasks/task');
 
 class MainApp {
 
@@ -29,7 +30,7 @@ class MainApp {
             return 'Invalid parameters to execute';
         }
 
-        if (!task && (typeof task.doProcess !== 'function')) {
+        if (!task && (task instanceof Task)) {
             return task.doProcess(...input);
         }
 

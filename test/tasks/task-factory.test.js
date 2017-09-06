@@ -19,7 +19,7 @@ describe('TaskFactory Test ', () => {
 
         it(' Test load number task in invalid folder must be throw exception ', () => {
             factory.init('/asdasd').then(() => {
-                expect(err).to.be.false;
+                expect().to.be.false;
             }).catch((err) => {
                 expect(err).to.be.not.null;
             });
@@ -29,9 +29,11 @@ describe('TaskFactory Test ', () => {
             factory.init('.').then(() => {
                 expect(factory.getCommandInTaskLoaded().length).to.be.eq(3);
             }).catch((err) => {
-                expect().to.be.false;
+                expect(err).to.be.null;
             });
         });
+
+
 
     });
 

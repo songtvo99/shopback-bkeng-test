@@ -1,6 +1,5 @@
 'use strict';
 
-const proxyquire = require('proxyquire').noCallThru();
 const sinon = require('sinon');
 const {
     expect
@@ -9,7 +8,10 @@ const {
 const sandbox = sinon.sandbox.create();
 const SettingsPrototype = {
     getTask(taskname) {
-        return sandbox.stub()
+        if (!taskname) {
+            sandbox.stub();
+        }
+        return null;
     }
 };
 

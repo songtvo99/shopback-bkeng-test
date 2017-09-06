@@ -4,9 +4,10 @@
 
 const MainApp = require('./app/main-app');
 const logger = require('./app/utils/logger');
+const TaskFactory = require('./tasks/task-factory');
 const taskDir = '.';
 
-var app = new MainApp();
+var app = new MainApp(new TaskFactory());
 
 app.factory.init(taskDir)
     .then(() => {

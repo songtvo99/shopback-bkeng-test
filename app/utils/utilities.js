@@ -16,16 +16,19 @@ class Util {
     static findPairValue(numbers) {
         let highest = 0;
         let lowest = 0;
-
+        var isFirst = true;
         numbers.map((i, index) => {
             const num = Number(i);
-            if (index === 0) {
-                highest = num;
-                lowest = num;
-            } else if (num > highest) {
-                highest = num;
-            } else if (num < lowest) {
-                lowest = num;
+            if (!Number.isNaN(i) && num > 0) {
+                if (isFirst) {
+                    highest = num;
+                    lowest = num;
+                    isFirst = false;
+                } else if (num > highest) {
+                    highest = num;
+                } else if (num < lowest) {
+                    lowest = num;
+                }
             }
         })
 

@@ -3,13 +3,10 @@
  */
 'use strict';
 
-const TaskFactory = require('./tasks/task-factory');
-
-
 class MainApp {
 
-    constructor() {
-        this.taskFactory = new TaskFactory();
+    constructor(taskFactory) {
+        this.taskFactory = taskFactory;
     }
 
     get factory() {
@@ -26,14 +23,16 @@ class MainApp {
         const taskname = input.shift().toLowerCase();
         const task = this.factory.getTask(taskname);
 
-        if (!taskname || !task) {
+        if (!taskname) {
             return 'Invalid parameters to execute';
         }
 
-        return task.doProcess(...input);
+        if (!task && (typeof task.doProcess !== 'function')) {
+            return task.doProcess(...input);
+        }
 
+        return 'Command Not Exist';
     }
-
 }
 
 module.exports = MainApp;

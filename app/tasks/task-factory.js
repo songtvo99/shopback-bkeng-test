@@ -24,6 +24,8 @@ class TaskFactory {
                     }
                 });
 
+                logger.info(`Number tasks was loaded ${Object.keys(_container).length}`);
+
             } catch (err) {
                 logger.error(err);
                 return reject(err);
@@ -33,7 +35,11 @@ class TaskFactory {
         });
     }
 
-    getTask(taskname) {
+    getCommandInTaskLoaded() {
+        return Object.keys(_container);
+    }
+
+    getTaskByCommand(taskname) {
         if (taskname in _container) {
             return _container[taskname];
         }

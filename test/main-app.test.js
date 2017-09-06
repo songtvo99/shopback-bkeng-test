@@ -36,7 +36,7 @@ describe(' Main App test with execute as main function ', () => {
         });
 
         it('when task doest not existed in system ', () => {
-            const inputFromCli = ['unknown-task'];
+            const inputFromCli = ['task'];
             const expectedMessage = 'Command Not Exist';
             expect(mainapp.execute(inputFromCli)).to.be.string(expectedMessage);
         });

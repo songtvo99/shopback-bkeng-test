@@ -2,6 +2,7 @@
  * Created by apple on 9/5/17.
  */
 'use strict';
+const logger = require('./utils/logger')
 
 class MainApp {
 
@@ -14,6 +15,7 @@ class MainApp {
     }
 
     execute(cli) {
+        logger.debug(cli);
 
         if (!cli || cli.length === 0) {
             return 'Please input valid parameters';
